@@ -1,0 +1,52 @@
+body {
+    background-color:dimgray
+}
+
+#dex {
+    display: inline;
+}
+
+.borderedTable {
+    margin: auto;
+    border: 2px solid aliceblue;
+    background-color: rgb(201, 165, 165);
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+#pageTitle {
+    font-size: 75px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.lato-thin {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.lato-light {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.lato-bold {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
