@@ -34,6 +34,7 @@ body {
     background-color: rgba(201, 165, 165, 0.4);
     width: auto;
     display: flex;
+    align-items: center;
     margin-left: 100px;
     margin-right: 100px;
 
