@@ -20,6 +20,7 @@ body {
 
 #pageTitle {
     font-size: 75px;
+    border: 0.5px solid orangered;
     background-color: darkgrey;
     color:orangered;
     border-radius: 10px;
