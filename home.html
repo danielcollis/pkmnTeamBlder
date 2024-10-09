@@ -19,23 +19,35 @@
         </tr>
     </table>
 
-    <div class = "borderList">
-        <div class = "indivList">
-            <h1>content</h1>
-            <p>here is some text and i dont know how wide it will go zjfhzjkfg jkxgfkj xzgdkjfgz even more text msdfbjhksgf</p>
+    <div class = outerBorderSelection>
+        <div class = textIntro><p>This webpage can aid in creating a balanced Pokemon team that can respond to any type in the game. 
+            After selecting your team from the menus below, you can view how your Pokemon match up defensively against attacks from 
+            any type in the game! Hopefully, after using this resource, your team will have a response to any situation.</p>
+            <p>This tool has been developed to be used exclusively with <a href="https://pokemondb.net/pokedex/stats/gen5"><b>Gen 5 Pokemon</b></a>, which is great, since Gen 5 is the best Pokemon generation ever.
+            Support for other generations will be added in the future!</p>
         </div>
 
-        <div class = "indivList">
-            <h1>content2</h1> 
-            <p>sfhksjgfhk jsghkjfhg dkjgfhjdkgh jkdhgjkdhjkd hjkgfjdsgfjhdg jhdjhfsdzjhk fbhjdxsgfhj dsh kjfdgjyhfg</p>
-        </div>
+        <div class = spriteLoader>
+            <h2 class = spriteLoaderTitle>Sprite Loader</h2>
 
-        <div class = "indivList">
-            <h1>content3</h1>
-            <p>skfjgsj hdfgjhdgfj hdgjh dhkjgbkjdhfg hjhhdkjgbnk jdsbjhkg jkldsbngjkmdbs hjkgfb dskjhgbj hdshfb</p>
-        </div>  
+            <div class = dropdownContent>
+                <select name="pokemonSprite" id="spriteMenu">
+                    <option value="None">--Select--</option>
+                </select>
+            </div>
+
+            <div>
+            <button id = spriteButton onclick="changeSprite()">Load</button>
+            </div>
+
+            <div class = sprite>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/494.png" alt="sprite" id = "sprite">
+            </div>
+
+        </div>
+        
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js" async></script>
 </body>
 </html>

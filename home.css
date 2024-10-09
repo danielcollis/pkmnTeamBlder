@@ -20,19 +20,53 @@ body {
 
 #pageTitle {
     font-size: 75px;
-}
-
-.borderList {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.borderList > .indivList {
-    border: 2px solid black;
+    background-color: darkgrey;
+    color:orangered;
     border-radius: 10px;
+    padding: 5px;
+}
+
+.outerBorderSelection {
+    border: 2px solid white;
     margin-top: 10px;
+    border-radius: 10px;
+    background-color: rgba(201, 165, 165, 0.4);
     width: auto;
+    display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+
+.textIntro {
+    color: whitesmoke;
+    margin: 5px;
+    text-align: center;
+    border: 2px solid white;
+    border-radius:  10px;
+    background-color: rgb(201, 165, 165);
+    padding: 5px;
+    font-size: larger;
+}
+
+.textIntro b {
+    color: black;
+}
+
+.spriteLoader {
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spriteLoader > .sprite {
+    visibility: visible;
+}
+
+.spriteLoaderTitle {
+    font-style: oblique;
+    color:rgb(0, 0, 0);
 }
 
 .lato-thin {
