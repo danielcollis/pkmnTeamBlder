@@ -1,5 +1,8 @@
 body {
-    background-color:dimgray
+    background-color:dimgray;
+    background-image: url("images/unova.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #dex {
@@ -9,7 +12,7 @@ body {
 .borderedTable {
     margin: auto;
     border: 2px solid aliceblue;
-    background-color: rgb(201, 165, 165);
+    background-color: rgba(178,142,96,255);
     font-family: "Lato", sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -20,18 +23,22 @@ body {
 
 #pageTitle {
     font-size: 75px;
-    border: 0.5px solid orangered;
-    background-color: darkgrey;
-    color:orangered;
-    border-radius: 10px;
+    font-style: italic;
+    color: rgba(1,127,159,255);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
     padding: 5px;
 }
 
+.titleLower {
+    color: rgba(162,190,202,255);
+    text-shadow: 2px 2px 3px rgb(0, 0, 0);
+}
+
 .outerBorderSelection {
-    border: 2px solid white;
     margin-top: 10px;
     border-radius: 10px;
-    background-color: rgba(201, 165, 165, 0.4);
+    background-color: rgba(2, 67, 85, 0.7);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     width: auto;
     display: flex;
     align-items: center;
@@ -44,9 +51,9 @@ body {
     color: whitesmoke;
     margin: 5px;
     text-align: center;
-    border: 2px solid white;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     border-radius:  10px;
-    background-color: rgb(201, 165, 165);
+    background-color: rgba(1,125,158,0.3);
     padding: 5px;
     font-size: larger;
 }
@@ -68,7 +75,8 @@ body {
 
 .spriteLoaderTitle {
     font-style: oblique;
-    color:rgb(0, 0, 0);
+    color: white;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 
 .lato-thin {
