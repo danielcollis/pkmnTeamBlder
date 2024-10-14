@@ -75,8 +75,52 @@ body {
 
 .spriteLoaderTitle {
     font-style: oblique;
-    color: white;
+    color: whitesmoke;
     text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.typeMatchupArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgba(47,143,67,0.7);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.typeChartText {
+    color: whitesmoke;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.wholeTable {
+    width: 90%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    color: whitesmoke;
+}
+
+.wholeTable th, td {
+    padding: 10px;
+}
+
+.wholeTable td {
+    border: 1px solid rgba(47,143,67,0.7);
+}
+
+.moveIcon {
+    margin: 0;
+    font-size: large;
+}
+
+.wholeTable .set1 td{
+    background-color: rgba(0, 100, 0, 0.342);
+}
+
+.wholeTable .set2 td{
+    background-color: rgba(0, 100, 0, 0.693);
 }
 
 .lato-thin {
