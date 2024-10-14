@@ -41,7 +41,8 @@ body {
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     width: auto;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-left: 100px;
     margin-right: 100px;
 
@@ -56,6 +57,7 @@ body {
     background-color: rgba(1,125,158,0.3);
     padding: 5px;
     font-size: larger;
+    flex-basis: 85%;
 }
 
 .textIntro b {
@@ -63,20 +65,32 @@ body {
 }
 
 .spriteLoader {
-    margin-right: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.spriteLoader > .sprite {
-    visibility: visible;
+    flex-basis: 13%;
 }
 
 .spriteLoaderTitle {
     font-style: oblique;
     color: whitesmoke;
     text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+#spriteButton {
+    margin-top: 3px;
+}
+
+.pkmnSelect {
+    text-align: center;
+    background-color: rgba(1,125,158,0.3);
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+option {
+    text-align: center;
 }
 
 .typeMatchupArea {
