@@ -6,6 +6,11 @@
 //identifes the dropdown menu and sprite image
 const dropdown = document.getElementById("spriteMenu");
 const pkmn1 = document.getElementById("pkmn1");
+const pkmn2 = document.getElementById("pkmn2");
+const pkmn3 = document.getElementById("pkmn3");
+const pkmn4 = document.getElementById("pkmn4");
+const pkmn5 = document.getElementById("pkmn5");
+const pkmn6 = document.getElementById("pkmn6");
 const spriteImage = document.getElementById("sprite");
 
 //retrives pokemon names and adds them to the drop down menu

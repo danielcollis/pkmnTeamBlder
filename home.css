@@ -118,6 +118,7 @@ option {
 
 .wholeTable th, td {
     padding: 10px;
+    font-size: 1vw;
 }
 
 .wholeTable td {
