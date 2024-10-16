@@ -18,8 +18,8 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=156&offset=493")
     .then(response => response.json())
     .then(data => data.results)
     .then(results => {for (let i = 0; i < results.length; i++) {
-        const newOption = document.createElement("option");
             //create new option for dropdown
+            const newOption = document.createElement("option");
             newOption.value = results[i].name;
             newOption.text = results[i].name;
 
