@@ -114,11 +114,12 @@ option {
     border-collapse: collapse;
     table-layout: fixed;
     color: whitesmoke;
+    margin-bottom: 10px;
 }
 
 .wholeTable th, td {
     padding: 10px;
-    font-size: 1vw;
+    font-size: 1.3vw;
 }
 
 .wholeTable td {
