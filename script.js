@@ -64,6 +64,27 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=156&offset=493")
     }})
     .catch(error => console.log(error));
 
+
+//changes the sprites in the first row of the type matchup table
+let spriteSelect = document.querySelector(".pkmnSelect");
+//adds an event listener to every dropdown menu
+for (let i = 0; i < spriteSelect.children.length; i++) {
+    spriteSelect.children[i].addEventListener("change", function(event) {
+        let dropdown = event.target;
+        let name = dropdown.value;
+        fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        .then(response => response.json())
+        .then(data => {
+            //assigns an index depending on which dropdown menu was selected, then changes that images' src to the name of the pkmn selected
+            let index = Array.from(spriteSelect.children).indexOf(dropdown) + 1;
+            let spriteImg = document.querySelector(`.sprite${index}`).children[0];
+            spriteImg.src = data.sprites.front_default;
+        })
+        .catch(error => console.log(error));
+    })
+}
+
+
 //changes the sprite under "sprite loader"
 async function changeSprite() {
 
