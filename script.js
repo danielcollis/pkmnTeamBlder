@@ -135,6 +135,7 @@ for (let i = 0; i < spriteSelect.children.length; i++) {
                         }
                     }
 
+                    //changes styling of each element depending on its value
                     for (let p = 1; p < wholeTable.children.length; p++) {
                         for (let q = 1; q < wholeTable.children[p].children.length - 2; q++) {
                             let elem = wholeTable.children[p].children[q];
@@ -203,7 +204,6 @@ for (let i = 0; i < spriteSelect.children.length; i++) {
                 })
                 .catch(error => console.log(error));
             }
-
         })
         .catch(error => console.log(error));
     })
