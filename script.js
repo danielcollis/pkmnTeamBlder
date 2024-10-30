@@ -97,48 +97,50 @@ for (let i = 0; i < spriteSelect.children.length; i++) {
                 fetch(`https://pokeapi.co/api/v2/type/${type}`)
                 .then(response => response.json())
                 .then(data => {
+                    
                     for (let m = 0; m < data.damage_relations.double_damage_from.length; m++) {
                         let superEffectiveRow = document.querySelector(`.${data.damage_relations.double_damage_from[m].name}Row`);
                         let superEffectiveElem = superEffectiveRow.children[index];
-                        superEffectiveElem.innerHTML *= 2;
-                        //superEffectiveElem.style.color = "red";
+                        superEffectiveElem.setAttribute("data-value", parseFloat(superEffectiveElem.getAttribute("data-value")) * 2);
                     }
                     for (let m = 0; m < data.damage_relations.half_damage_from.length; m++) {
                         let notEffectiveRow = document.querySelector(`.${data.damage_relations.half_damage_from[m].name}Row`);
                         let notEffectiveElem = notEffectiveRow.children[index];
-                        notEffectiveElem.innerHTML *= 0.5;
-                        //notEffectiveElem.style.color = "red";
+                        notEffectiveElem.setAttribute("data-value", parseFloat(notEffectiveElem.getAttribute("data-value")) * 0.5);
                     }
                     for (let m = 0; m < data.damage_relations.no_damage_from.length; m++) {
                         let zeroEffectiveRow = document.querySelector(`.${data.damage_relations.no_damage_from[m].name}Row`);
                         let zeroEffectiveElem = zeroEffectiveRow.children[index];
-                        zeroEffectiveElem.innerHTML *= 0;
-                        //notEffectiveElem.style.color = "red";
+                        zeroEffectiveElem.setAttribute("data-value", parseFloat(zeroEffectiveElem.getAttribute("data-value")) * 0);
                     }
+                    
 
                     //add loop to change totalweak and totalresist columns
 
                     for (let p = 1; p < wholeTable.children.length; p++) {
                         for (let q = 1; q < wholeTable.children[p].children.length - 2; q++) {
                             let elem = wholeTable.children[p].children[q];
-                            if (elem.innerHTML == 0.25) {
+                            if (elem.getAttribute("data-value") == 0.25) {
                                 elem.style.color = "greenyellow";
-                                elem.innerHTML = 1/4;
+                                elem.innerHTML = "1/4";
                             }
-                            else if (elem.innerHTML == 0.5) {
+                            else if (elem.getAttribute("data-value") == 0.5) {
                                 elem.style.color = "rgb(164, 216, 86)";
-                                elem.innerHTML = 1/2;
+                                elem.innerHTML = "1/2";
                             }
-                            else if (elem.innerHTML == 2) {
+                            else if (elem.getAttribute("data-value") == 2) {
                                 elem.style.color = "darkred";
+                                elem.innerHTML = "2"
                             }
-                            else if (elem.innerHTML == 4) {
+                            else if (elem.getAttribute("data-value") == 4) {
                                 elem.style.color = "red";
+                                elem.innerHTML = "4"
                             }
-                            else if (elem.innerHTML == 0) {
+                            else if (elem.getAttribute("data-value") == 0) {
                                 elem.style.color = "purple";
+                                elem.innerHTML = "Immune";
                             }
-                            else if (elem.innerHTML == 1) {
+                            else if (elem.getAttribute("data-value") == 1) {
                                 elem.style.color = "transparent";
                             }
 
