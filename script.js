@@ -78,6 +78,8 @@ for (let i = 0; i < spriteSelect.children.length; i++) {
         for (let i = 1; i < wholeTable.children.length; i++) {
             wholeTable.children[i].children[index].setAttribute("data-value", 1);
             wholeTable.children[i].children[index].style.color = "transparent";
+            wholeTable.children[i].children[7].innerHTML = 0;
+            wholeTable.children[i].children[8].innerHTML = 0;
         }
 
         fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
@@ -97,7 +99,6 @@ for (let i = 0; i < spriteSelect.children.length; i++) {
                 fetch(`https://pokeapi.co/api/v2/type/${type}`)
                 .then(response => response.json())
                 .then(data => {
-                    
                     for (let m = 0; m < data.damage_relations.double_damage_from.length; m++) {
                         let superEffectiveRow = document.querySelector(`.${data.damage_relations.double_damage_from[m].name}Row`);
                         let superEffectiveElem = superEffectiveRow.children[index];
@@ -114,8 +115,25 @@ for (let i = 0; i < spriteSelect.children.length; i++) {
                         zeroEffectiveElem.setAttribute("data-value", parseFloat(zeroEffectiveElem.getAttribute("data-value")) * 0);
                     }
                     
-
-                    //add loop to change totalweak and totalresist columns
+                    //only executes if both types have already been processed through the table
+                    if (k == types.length - 1) {
+                        for (let r = 1; r < wholeTable.children.length; r++) {
+                            for (let t = 1; t < wholeTable.children[r].children.length; t++) {
+                            if (wholeTable.children[r].children[t].getAttribute("data-value") == 0.25) {
+                                wholeTable.children[r].children[8].innerHTML = parseFloat(wholeTable.children[r].children[8].innerHTML) + 2;
+                            }
+                            else if (wholeTable.children[r].children[t].getAttribute("data-value") == 0.5) {
+                                wholeTable.children[r].children[8].innerHTML = parseFloat(wholeTable.children[r].children[8].innerHTML) + 1;
+                            }
+                            else if (wholeTable.children[r].children[t].getAttribute("data-value") == 2) {
+                                wholeTable.children[r].children[7].innerHTML = parseFloat(wholeTable.children[r].children[7].innerHTML) + 1;
+                            }
+                            else if (wholeTable.children[r].children[t].getAttribute("data-value") == 4) {
+                                wholeTable.children[r].children[7].innerHTML = parseFloat(wholeTable.children[r].children[7].innerHTML) + 2;
+                            }
+                            }
+                        }
+                    }
 
                     for (let p = 1; p < wholeTable.children.length; p++) {
                         for (let q = 1; q < wholeTable.children[p].children.length - 2; q++) {
@@ -143,45 +161,51 @@ for (let i = 0; i < spriteSelect.children.length; i++) {
                             else if (elem.getAttribute("data-value") == 1) {
                                 elem.style.color = "transparent";
                             }
-
-                            //add more else if statements for the rightmost columns
                         }
+
+                        for (let v = 7; v < wholeTable.children[p].children.length - 1; v++) {
+                            let elem = wholeTable.children[p].children[v];
+                            if (parseFloat(elem.innerHTML) == 0) {
+                                elem.style.fontWeight = "bold";
+                                elem.style.color = "white";
+                            }
+                            else if (parseFloat(elem.innerHTML) == 1) {
+                                elem.style.fontWeight = "bold";
+                                elem.style.color = "white";
+                                elem.style.backgroundColor = "rgba(100, 0, 0, 0.693)";
+                            }
+                            else if (parseFloat(elem.innerHTML) >= 2) {
+                                elem.style.fontWeight = "bold";
+                                elem.style.color = "white";
+                                elem.style.backgroundColor = "rgba(200, 0, 0, 0.693)";
+                            }
+                        }
+
+                        for (let v = 8; v < wholeTable.children[p].children.length; v++) {
+                            let elem = wholeTable.children[p].children[v];
+                            if (parseFloat(elem.innerHTML) == 0) {
+                                elem.style.fontWeight = "bold";
+                                elem.style.color = "white";
+                            }
+                            else if (parseFloat(elem.innerHTML) == 1) {
+                                elem.style.fontWeight = "bold";
+                                elem.style.color = "white";
+                                elem.style.backgroundColor = "rgba(0, 100, 0, 0.750)";
+                            }
+                            else if (parseFloat(elem.innerHTML) >= 2) {
+                                elem.style.fontWeight = "bold";
+                                elem.style.color = "white";
+                                elem.style.backgroundColor = "rgba(0, 200, 0, 0.750)";
+                            }
+                        }
+
                     }
                 })
                 .catch(error => console.log(error));
             }
+
         })
         .catch(error => console.log(error));
-
-        /*fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-        .then(response => response.json())
-        .then(data => {
-            let returnedTypes = data.types;
-            for (let i = 0; i < returnedTypes.length; i++) {
-                pkmnTypes[index-1][i] = returnedTypes[i].type.name;
-            }
-
-            for (let j = 0; j < pkmnTypes.length; j++) {
-                for (let k = 0; k < 2; k++) {
-                    if (pkmnTypes[j][k] == undefined) {
-                        break;
-                    }
-                    fetch(`https://pokeapi.co/api/v2/type/${pkmnTypes[j][k]}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        for (let m = 0; m < data.damage_relations.double_damage_from.length; m++) {
-                            let row = document.querySelector(`.${data.damage_relations.double_damage_from[m].name}Row`);
-                            let elem = row.children[j+1];
-                            elem.innerHTML *= 2;
-                            elem.style.color = "red";
-                        }
-                    })
-                    .catch(error => console.log(error));
-                }
-            }
-
-        })
-        .catch(error => console.log(error));*/
     })
 }
 
