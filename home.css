@@ -139,6 +139,12 @@ option {
     background-color: rgba(0, 100, 0, 0.693);
 }
 
+.wholeTable td {
+    text-align: center;
+    color:transparent;
+    font-size:215%;
+}
+
 .sprite1 img, .sprite2 img, .sprite3 img, .sprite4 img,
  .sprite5 img, .sprite6 img{
     max-width: 120%;

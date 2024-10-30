@@ -67,20 +67,119 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=156&offset=493")
 
 //changes the sprites in the first row of the type matchup table
 let spriteSelect = document.querySelector(".pkmnSelect");
+let wholeTable = document.querySelector(".wholeTable").children[0];
 //adds an event listener to every dropdown menu
 for (let i = 0; i < spriteSelect.children.length; i++) {
     spriteSelect.children[i].addEventListener("change", function(event) {
         let dropdown = event.target;
         let name = dropdown.value;
+        let index = Array.from(spriteSelect.children).indexOf(dropdown) + 1;
+
+        for (let i = 1; i < wholeTable.children.length; i++) {
+            wholeTable.children[i].children[index].innerHTML = 1;
+            wholeTable.children[i].children[index].style.color = "transparent";
+        }
+
         fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then(response => response.json())
         .then(data => {
             //assigns an index depending on which dropdown menu was selected, then changes that images' src to the name of the pkmn selected
-            let index = Array.from(spriteSelect.children).indexOf(dropdown) + 1;
             let spriteImg = document.querySelector(`.sprite${index}`).children[0];
             spriteImg.src = data.sprites.front_default;
+
+            let types = [];
+            for (let j = 0; j < data.types.length; j++) {
+                types[j] = data.types[j].type.name;
+            }
+            
+            for (let k = 0; k < types.length; k++) {
+                let type = types[k];
+                fetch(`https://pokeapi.co/api/v2/type/${type}`)
+                .then(response => response.json())
+                .then(data => {
+                    for (let m = 0; m < data.damage_relations.double_damage_from.length; m++) {
+                        let superEffectiveRow = document.querySelector(`.${data.damage_relations.double_damage_from[m].name}Row`);
+                        let superEffectiveElem = superEffectiveRow.children[index];
+                        superEffectiveElem.innerHTML *= 2;
+                        //superEffectiveElem.style.color = "red";
+                    }
+                    for (let m = 0; m < data.damage_relations.half_damage_from.length; m++) {
+                        let notEffectiveRow = document.querySelector(`.${data.damage_relations.half_damage_from[m].name}Row`);
+                        let notEffectiveElem = notEffectiveRow.children[index];
+                        notEffectiveElem.innerHTML *= 0.5;
+                        //notEffectiveElem.style.color = "red";
+                    }
+                    for (let m = 0; m < data.damage_relations.no_damage_from.length; m++) {
+                        let zeroEffectiveRow = document.querySelector(`.${data.damage_relations.no_damage_from[m].name}Row`);
+                        let zeroEffectiveElem = zeroEffectiveRow.children[index];
+                        zeroEffectiveElem.innerHTML *= 0;
+                        //notEffectiveElem.style.color = "red";
+                    }
+
+                    //add loop to change totalweak and totalresist columns
+
+                    for (let p = 1; p < wholeTable.children.length; p++) {
+                        for (let q = 1; q < wholeTable.children[p].children.length - 2; q++) {
+                            let elem = wholeTable.children[p].children[q];
+                            if (elem.innerHTML == 0.25) {
+                                elem.style.color = "greenyellow";
+                                elem.innerHTML = 1/4;
+                            }
+                            else if (elem.innerHTML == 0.5) {
+                                elem.style.color = "rgb(164, 216, 86)";
+                                elem.innerHTML = 1/2;
+                            }
+                            else if (elem.innerHTML == 2) {
+                                elem.style.color = "darkred";
+                            }
+                            else if (elem.innerHTML == 4) {
+                                elem.style.color = "red";
+                            }
+                            else if (elem.innerHTML == 0) {
+                                elem.style.color = "purple";
+                            }
+                            else if (elem.innerHTML == 1) {
+                                elem.style.color = "transparent";
+                            }
+
+                            //add more else if statements for the rightmost columns
+                        }
+                    }
+                })
+                .catch(error => console.log(error));
+            }
         })
         .catch(error => console.log(error));
+
+        /*fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        .then(response => response.json())
+        .then(data => {
+            let returnedTypes = data.types;
+            for (let i = 0; i < returnedTypes.length; i++) {
+                pkmnTypes[index-1][i] = returnedTypes[i].type.name;
+            }
+
+            for (let j = 0; j < pkmnTypes.length; j++) {
+                for (let k = 0; k < 2; k++) {
+                    if (pkmnTypes[j][k] == undefined) {
+                        break;
+                    }
+                    fetch(`https://pokeapi.co/api/v2/type/${pkmnTypes[j][k]}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        for (let m = 0; m < data.damage_relations.double_damage_from.length; m++) {
+                            let row = document.querySelector(`.${data.damage_relations.double_damage_from[m].name}Row`);
+                            let elem = row.children[j+1];
+                            elem.innerHTML *= 2;
+                            elem.style.color = "red";
+                        }
+                    })
+                    .catch(error => console.log(error));
+                }
+            }
+
+        })
+        .catch(error => console.log(error));*/
     })
 }
 
