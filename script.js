@@ -76,7 +76,7 @@ for (let i = 0; i < spriteSelect.children.length; i++) {
         let index = Array.from(spriteSelect.children).indexOf(dropdown) + 1;
 
         for (let i = 1; i < wholeTable.children.length; i++) {
-            wholeTable.children[i].children[index].innerHTML = 1;
+            wholeTable.children[i].children[index].setAttribute("data-value", 1);
             wholeTable.children[i].children[index].style.color = "transparent";
         }
 
