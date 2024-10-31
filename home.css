@@ -142,7 +142,7 @@ option {
 .wholeTable td {
     text-align: center;
     color:transparent;
-    font-size:215%;
+    font-size: 2vw;
 }
 
 .sprite1 img, .sprite2 img, .sprite3 img, .sprite4 img,
