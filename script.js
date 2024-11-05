@@ -131,6 +131,9 @@ for (let i = 0; i < spriteSelect.children.length; i++) {
                             else if (wholeTable.children[r].children[t].getAttribute("data-value") == 4) {
                                 wholeTable.children[r].children[7].innerHTML = parseFloat(wholeTable.children[r].children[7].innerHTML) + 2;
                             }
+                            if (wholeTable.children[r].children[t].getAttribute("data-value") == 0) {
+                                wholeTable.children[r].children[8].innerHTML = parseFloat(wholeTable.children[r].children[8].innerHTML) + 1;
+                            }
                             }
                         }
                     }
