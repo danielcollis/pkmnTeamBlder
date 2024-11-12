@@ -93,6 +93,12 @@ option {
     text-align: center;
 }
 
+.dexButton {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
 .typeMatchupArea {
     display: flex;
     flex-direction: column;

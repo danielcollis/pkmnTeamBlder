@@ -1,0 +1,7 @@
+body {
+    background-color: dimgray;
+    background-image: url("images/unova.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}

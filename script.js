@@ -236,3 +236,5 @@ async function changeSprite() {
         console.error(error);
     }
 }
+
+//TODO: add onClick function to show dex info
