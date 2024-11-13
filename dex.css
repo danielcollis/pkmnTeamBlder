@@ -1,3 +1,51 @@
 body {
     background-color: dimgray;
+    background-image: url("images/unova.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "Lato", sans-serif;
 }
+
+.allStatScreens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.allStatScreens > * {
+    flex-basis: 40%;
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    background-color: rgba(158, 1, 1, 0.3);
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    color: white;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    
+}
+
+.statLabels {
+    text-align: right;
+}
+
+ul > li {
+    padding: 10px;
+}
+
+img {
+    flex-basis: 30%;
+}
+
+.hpBar, .atkBar, .defBar, .spatkBar, .spdefBar, .speedBar {
+    background-color: white;
+    height: 18px;
+    width: 200px;
+}
+
+

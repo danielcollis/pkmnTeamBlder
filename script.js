@@ -28,27 +28,27 @@ fetch("https://pokeapi.co/api/v2/pokemon?limit=156&offset=493")
             newOption1.value = results[i].name;
             newOption1.text = results[i].name;
 
-            // Create another new option for pkmn1
+            // Create another new option for pkmn2
             const newOption2 = document.createElement("option");
             newOption2.value = results[i].name;
             newOption2.text = results[i].name;
 
-            // Create another new option for pkmn1
+            // Create another new option for pkmn3
             const newOption3 = document.createElement("option");
             newOption3.value = results[i].name;
             newOption3.text = results[i].name;
 
-            // Create another new option for pkmn1
+            // Create another new option for pkmn4
             const newOption4 = document.createElement("option");
             newOption4.value = results[i].name;
             newOption4.text = results[i].name;
 
-            // Create another new option for pkmn1
+            // Create another new option for pkmn5
             const newOption5 = document.createElement("option");
             newOption5.value = results[i].name;
             newOption5.text = results[i].name;
 
-            // Create another new option for pkmn1
+            // Create another new option for pkmn6
             const newOption6 = document.createElement("option");
             newOption6.value = results[i].name;
             newOption6.text = results[i].name;
@@ -237,4 +237,11 @@ async function changeSprite() {
     }
 }
 
-//TODO: add onClick function to show dex info
+function saveDex() {
+    for (let i = 1; i <= 6; i++) {
+        const pkmnName = document.getElementById(`pkmn${i}`).value;
+            localStorage.setItem(`pkmn${i}Name`, pkmnName);
+    }
+    window.open("dex.html", "_blank")
+}
+
