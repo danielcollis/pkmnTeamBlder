@@ -28,16 +28,16 @@ function loadDex() {
                         currBar.style.backgroundColor = "orangered";
                     }
                     else if ((parseFloat(currBarWidth) / 0.1) < 80) {
-                        currBar.style.backgroundColor = "orange";
-                    }
-                    else if ((parseFloat(currBarWidth) / 0.1) < 100) {
                         currBar.style.backgroundColor = "yellow";
                     }
-                    else if ((parseFloat(currBarWidth) / 0.1) < 120) {
+                    else if ((parseFloat(currBarWidth) / 0.1) < 100) {
                         currBar.style.backgroundColor = "yellowgreen";
                     }
-                    else {
+                    else if ((parseFloat(currBarWidth) / 0.1) < 120) {
                         currBar.style.backgroundColor = "limegreen";
+                    }
+                    else {
+                        currBar.style.backgroundColor = "aqua";
                     }
                 }
             })
