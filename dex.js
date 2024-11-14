@@ -19,21 +19,21 @@ function loadDex() {
                 //iterates through each
                 for (let j = 0; j < 6; j++) {
                     screenCurr.children[1].children[j].innerHTML += data.stats[j].base_stat;
-                    let currBarWidth = screenCurr.querySelector(`.${bars[j]}`).style.width = `${data.stats[j].base_stat * 1.6}px`
+                    let currBarWidth = screenCurr.querySelector(`.${bars[j]}`).style.width = `${data.stats[j].base_stat * 0.1}vw`
                     let currBar = screenCurr.children[2].children[j].children[0];
-                    if ((parseFloat(currBarWidth) / 1.6) < 40) {
+                    if ((parseFloat(currBarWidth) / 0.1) < 40) {
                         currBar.style.backgroundColor = "red";
                     }
-                    else if ((parseFloat(currBarWidth) / 1.6) < 60) {
+                    else if ((parseFloat(currBarWidth) / 0.1) < 60) {
                         currBar.style.backgroundColor = "orangered";
                     }
-                    else if ((parseFloat(currBarWidth) / 1.6) < 80) {
+                    else if ((parseFloat(currBarWidth) / 0.1) < 80) {
                         currBar.style.backgroundColor = "orange";
                     }
-                    else if ((parseFloat(currBarWidth) / 1.6) < 100) {
+                    else if ((parseFloat(currBarWidth) / 0.1) < 100) {
                         currBar.style.backgroundColor = "yellow";
                     }
-                    else if ((parseFloat(currBarWidth) / 1.6) < 120) {
+                    else if ((parseFloat(currBarWidth) / 0.1) < 120) {
                         currBar.style.backgroundColor = "yellowgreen";
                     }
                     else {
