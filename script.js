@@ -71,7 +71,6 @@ let wholeTable = document.querySelector(".wholeTable").children[0];
 //adds an event listener to every dropdown menu
 for (let i = 0; i < spriteSelect.children.length; i++) {
     spriteSelect.children[i].addEventListener("change", function(event) {
-        //TODO: add a function (defined elsewhere) to add a "show dex info" button when there are actual pokemon selected from the dropdown menu
         let dropdown = event.target;
         let name = dropdown.value;
         let index = Array.from(spriteSelect.children).indexOf(dropdown) + 1;
@@ -203,7 +202,6 @@ for (let i = 0; i < spriteSelect.children.length; i++) {
                                 elem.style.backgroundColor = "rgba(0, 200, 0, 0.750)";
                             }
                         }
-
                     }
                 })
                 .catch(error => console.log(error));

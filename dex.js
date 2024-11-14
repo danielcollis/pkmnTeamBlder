@@ -49,9 +49,4 @@ function loadDex() {
 
 window.onload = loadDex;
 
-
-
-
-
-
-//CLEAR LOCAL STORAGE ONCE PAGE LOADS
+localStorage.clear();
