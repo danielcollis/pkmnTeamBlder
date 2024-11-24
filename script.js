@@ -14,7 +14,7 @@ const pkmn6 = document.getElementById("pkmn6");
 const spriteImage = document.getElementById("sprite");
 
 //retrives pokemon names and adds them to the drop down menu
-fetch("https://pokeapi.co/api/v2/pokemon?limit=156&offset=493")
+fetch("https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0")
     .then(response => response.json())
     .then(data => data.results)
     .then(results => {for (let i = 0; i < results.length; i++) {
