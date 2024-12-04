@@ -57,7 +57,7 @@ body {
     background-color: rgba(1,125,158,0.3);
     padding: 5px;
     font-size: larger;
-    flex-basis: 85%;
+    flex-basis: 80%;
 }
 
 .textIntro b {
